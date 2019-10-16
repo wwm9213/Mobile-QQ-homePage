@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="fonts/iconfont.css">
+    <script src="js/flexible.js"></script>
+    <script src="js/zepto.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <img src="images/56A9FAC809783B648A78024AC03D4494.jpg" alt="">
+            <a href="javascript:;">消息</a>
+            <i class="icon iconfont icon-jia
+            "></i>
+        </header>
+        <section>
+            <div class="search">
+                <form action="">
+                    <i class="icon iconfont icon-fangdajing"></i>
+                    <input type="text" placeholder="搜索">
+                </form>
+            </div>
+            <ul class="friend-list">
+                <li>
+                    <dl>
+                        <dd>
+                            <img src="images/56A9FAC809783B648A78024AC03D4494.jpg" alt="">
+                        </dd>
+                        <dt>
+                            <div class="f-top">
+                                <b>何以安于心</b><span>10:17</span>
+                            </div>
+                            <div class="f-bot">在哪里？</div>
+                        </dt>
+                    </dl>
+                    <div class="operation">
+                        <div class="Stick">置顶</div>
+                        <div class="hint">标为未读</div>
+                        <div class="del">删除</div>
+                    </div>
+                </li>
+                <li>
+                    <dl>
+                        <dd>
+                            <img src="images/56A9FAC809783B648A78024AC03D4494.jpg" alt="">
+                        </dd>
+                        <dt>
+                            <div class="f-top">
+                                <b>何以安于心</b><span>10:17</span>
+                            </div>
+                            <div class="f-bot">喜欢你!</div>
+                        </dt>
+                    </dl>
+                    <div class="operation">
+                        <div class="Stick">置顶</div>
+                        <div class="hint">标为未读</div>
+                        <div class="del">删除</div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <footer>
+            <ol>
+                <li><i class="icon iconfont icon-xiaoxi"></i>
+                    <a href="javascript:;">消息</a>
+                </li>
+                <li><i class="icon iconfont icon-wode"></i>
+                    <a href="javascript:;">联系人</a>
+                </li>
+                <li><i class="icon iconfont icon-iconhuidaoshouye"></i>
+                    <a href="javascript:;">动态</a>
+                </li>
+            </ol>
+        </footer>
+    </div>
+
+    <script>
+        $('.friend-list>li').on('swipeLeft', 'dl', function() {
+            $(this).addClass('active').parents('li').siblings().find('dl').removeClass('active');
+            $(this).parents('li').find('.operation').addClass('success');
+            $(this).parents('li').siblings().find('.operation').removeClass('success');
+        });
+        $('.friend-list>li').on('swipeRight', 'dl', function() {
+            $(this).removeClass('active');
+            $(this).parents('li').find('.operation').removeClass('success');
+        });
+        $('.del').click(function() {
+            $(this).parents('li').remove();
+        });
+        $('.Stick').click(function() {
+            $(this).parents('li').prependTo($(this).parents('.friend-list'));
+            $(this).parents('li').find('dl').removeClass('active');
+            $(this).parents('.operation').removeClass('success');
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,214 @@
+@import'common.scss';
+@import'myscss.scss';
+
+* {
+    @include sizing;
+}
+
+.wrap {
+    @include num(100%, 100%);
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    @include num(100%, pxTorem(76px));
+    @include lg(#508DFF, #36B9FD);
+    @include flex;
+    padding: 0 pxTorem(18px);
+
+    img {
+        @include num(pxTorem(58px), pxTorem(58px));
+        @include cir(pxTorem(58px));
+    }
+
+    a {
+        font-size: pxTorem(25px);
+        color: #fff;
+    }
+
+    .icon {
+        font-size: pxTorem(34px);
+        color: #fff;
+    }
+
+}
+
+section {
+    flex: 1;
+    overflow-y: auto;
+
+    .search {
+        @include num(100%, pxTorem(60px));
+        padding: pxTorem(10px) pxTorem(20px);
+
+        form {
+            @include num(100%, 100%);
+            background: #F3F3F3;
+            border-radius: pxTorem(6px);
+            @include flex(center);
+
+            .icon {
+                flex: 4;
+                text-align: right;
+                margin-right: pxTorem(8px);
+                font-size: pxTorem(22px);
+                color: #CECED0;
+                font-weight: 700;
+            }
+
+            input {
+                flex: 6;
+                @include num(100%, 100%);
+                font-size: pxTorem(22px);
+                color: #CECED0;
+            }
+
+        }
+
+    }
+
+    .friend-list {
+        @include num(100%, auto);
+
+        li {
+            @include num(100%, pxTorem(100px));
+            border-bottom: 1px solid #ccc;
+            position: relative;
+
+            dl {
+                @include num(100%, 100%);
+                padding: pxTorem(12px) pxTorem(20px);
+                @include flex;
+                z-index: 9;
+                background: #fff;
+                transition: 1s;
+
+                dd {
+                    height: 100%;
+                    flex: 2;
+
+                    img {
+                        @include num(pxTorem(76px), pxTorem(76px));
+                        @include cir(pxTorem(76px));
+                    }
+
+                }
+
+                dt {
+                    height: 100%;
+                    flex: 8;
+                    padding-left: pxTorem(20px);
+
+                    .f-top {
+                        @include flex;
+                        align-items: flex-end;
+
+                        b {
+                            font-size: pxTorem(26px);
+                            color: #292929;
+                        }
+
+                        span {
+                            font-size: pxTorem(14px);
+                            color: #989898;
+                        }
+
+                    }
+
+                    .f-bot {
+                        font-size: pxTorem(20px);
+                        color: #989898;
+                        margin-top: pxTorem(14px);
+                    }
+
+                }
+
+            }
+
+            .operation {
+                @include num(75%, 100%);
+                position: absolute;
+                top: 0;
+                right: 0;
+                z-index: -1;
+                @include flex;
+                font-size: pxTorem(22px);
+                color: #fff;
+                padding: pxTorem(.1px) 0;
+
+                .hint {
+                    flex: 4;
+                    height: 100%;
+                    @include flex(center);
+                    background: #FF9C00;
+                }
+
+                .Stick {
+                    flex: 3;
+                    height: 100%;
+                    @include flex(center);
+                    background: #C9C8CE;
+                }
+
+                .del {
+                    flex: 3;
+                    height: 100%;
+                    @include flex(center);
+                    background: #FF3A32;
+                }
+
+            }
+
+            .active {
+                transform: translate(-75%);
+                z-index: -99;
+            }
+
+            .success {
+                transition-delay: 1s;
+                z-index: 99;
+            }
+
+        }
+
+    }
+
+}
+
+footer {
+    @include num(100%, pxTorem(80px));
+    border-top: 1px solid #ccc;
+
+    ol {
+        @include num(100%, 100%);
+        background: #FFFFFF;
+        @include flex;
+
+        li {
+            flex: 1;
+            @include flex(center);
+            flex-direction: column;
+
+            .icon {
+                font-size: pxTorem(40px);
+                color: #808082;
+            }
+
+            a {
+                font-size: pxTorem(14px);
+                color: #979797;
+            }
+
+            &:nth-child(1) {
+                .icon, a {
+                    color: #3AB3EA;
+                }
+
+            }
+
+        }
+
+    }
+
+}
